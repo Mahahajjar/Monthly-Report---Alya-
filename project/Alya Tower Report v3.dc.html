@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/tashyid-design-system-09b28622-2bf5-4946-a4b3-6903bd054256/colors_and_type.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #E8E4DF;
+      padding: 48px 24px 72px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    @page { margin: 0; size: A4 portrait; }
+    @media print {
+      body { background: none !important; padding: 0 !important; }
+      .page { box-shadow: none !important; border-radius: 0 !important; max-width: 100% !important; width: 100% !important; margin: 0 !important; }
+    }
+    .sec-head {
+      font-family: 'DIN Next LT W23', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #7A1143;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid #E4E0DC;
+      margin-bottom: 12px;
+    }
+    .prose {
+      font-family: 'DIN Next Arabic', sans-serif;
+      font-size: 12.5px;
+      font-weight: 400;
+      color: #3A3937;
+      line-height: 1.75;
+      text-wrap: pretty;
+    }
+    .prose strong {
+      font-weight: 700;
+      color: #2E2D2C;
+    }
+    .prog-item {
+      display: grid;
+      grid-template-columns: 8px 1fr;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #F0EDE9;
+      align-items: start;
+    }
+    .prog-item:last-child { border-bottom: none; }
+    .prog-dot {
+      width: 6px;
+      height: 6px;
+      background: #7A1143;
+      border-radius: 50%;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DIN Next LT W23', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+  </style>
+</helmet>
+
+<div class="page" style="max-width: 816px; margin: 0 auto; background: white; border-radius: 3px; box-shadow: 0 16px 56px rgba(46,45,44,0.2); overflow: hidden;">
+
+  <!-- ══════ HEADER ══════ -->
+  <div style="position: relative; overflow: hidden; background: #7A1143; min-height: 200px; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 0 0;">
+    <!-- Photo -->
+    <div style="position: absolute; inset: 0; background-image: url('assets/neom-07.jpg'); background-size: cover; background-position: center 30%; opacity: 0.2; mix-blend-mode: luminosity;"></div>
+    <!-- Palm pattern -->
+    <div style="position: absolute; inset: 0; background-image: url('assets/TD-PATTERNS-02-palmtrees.png'); background-size: 200px; opacity: 0.06;"></div>
+    <!-- Gradient bottom -->
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(122,17,67,0.5) 100%);"></div>
+
+    <!-- Top bar -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; padding: 28px 48px; display: flex; align-items: flex-start; justify-content: space-between; z-index: 2;">
+      <img src="assets/TD-LOGO-04-badge-white.png" alt="Tashyid" style="height: 46px;">
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+        <div style="display: inline-flex; align-items: center; gap: 7px; background: rgba(200,134,10,0.25); border: 1px solid rgba(245,192,64,0.5); padding: 5px 12px; border-radius: 2px;">
+          <span style="width: 7px; height: 7px; background: #F5C040; border-radius: 50%;"></span>
+          <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #F5C040;">AMBER — Overall Status</span>
+        </div>
+        <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4);">15 June 2026 · Period: June 2026</span>
+      </div>
+    </div>
+
+    <!-- Title block -->
+    <div style="position: relative; z-index: 2; padding: 0 48px 32px;">
+      <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px;">Project Status Report</div>
+      <div style="display: flex; align-items: flex-end; justify-content: space-between;">
+        <div>
+          <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 54px; font-weight: 700; color: white; line-height: 1; letter-spacing: -0.02em; text-transform: uppercase;">ALYA TOWER</div>
+          <div style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
+            <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 11.5px; color: rgba(255,255,255,0.6);">Sidra Corniche Fund</span>
+            <span style="color: rgba(255,255,255,0.25); font-size: 9px;">◇</span>
+            <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 11.5px; color: rgba(255,255,255,0.6);">Corniche, Jeddah</span>
+            <span style="color: rgba(255,255,255,0.25); font-size: 9px;">◇</span>
+            <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 11.5px; color: rgba(255,255,255,0.6);">Phase 1 of 3</span>
+          </div>
+        </div>
+        <!-- Urgency callout -->
+        <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: 2px; padding: 10px 14px; text-align: right;">
+          <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 3px;">Funding — Days Open</div>
+          <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 32px; font-weight: 700; color: #F5C040; line-height: 1;">91</div>
+          <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; color: rgba(255,255,255,0.45); margin-top: 2px;">Sidra Capital Term Sheet</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chevron stripe -->
+  <div style="height: 13px; background-image: url('assets/TD-PATTERNS-05-chevron.png'); background-size: cover;"></div>
+
+  <!-- ══════ QUICK FACTS STRIP ══════ -->
+  <div style="background: #F8F6F4; display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid #E4E0DC;">
+    <div style="padding: 12px 16px; border-right: 1px solid #E4E0DC;">
+      <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #9E9B99; margin-bottom: 3px;">Project Manager</div>
+      <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; font-weight: 700; color: #2E2D2C;">Abdullah Anbar</div>
+    </div>
+    <div style="padding: 12px 16px; border-right: 1px solid #E4E0DC;">
+      <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #9E9B99; margin-bottom: 3px;">Contractor</div>
+      <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; font-weight: 700; color: #2E2D2C;">UCCL</div>
+    </div>
+    <div style="padding: 12px 16px; border-right: 1px solid #E4E0DC;">
+      <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #9E9B99; margin-bottom: 3px;">Fund Manager</div>
+      <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; font-weight: 700; color: #2E2D2C;">Sidra Capital</div>
+    </div>
+    <div style="padding: 12px 16px; border-right: 1px solid #E4E0DC;">
+      <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #9E9B99; margin-bottom: 3px;">Designer</div>
+      <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; font-weight: 700; color: #2E2D2C;">Erga</div>
+    </div>
+    <div style="padding: 12px 16px;">
+      <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #9E9B99; margin-bottom: 3px;">Supervision</div>
+      <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; font-weight: 700; color: #2E2D2C;">Midrar</div>
+    </div>
+  </div>
+
+  <!-- ══════ BODY ══════ -->
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+
+    <!-- LEFT COLUMN -->
+    <div style="padding: 28px 32px 28px 48px; border-right: 1px solid #E4E0DC;">
+
+      <!-- Project Overview -->
+      <div style="margin-bottom: 26px;">
+        <div class="sec-head"><span>◇</span> Project Overview</div>
+        <p class="prose">Alya Tower is a <strong>29-floor luxury apartment building</strong> planned for the North Corniche in Jeddah — one of the city's most prestigious waterfront locations. The tower will deliver <strong>65 premium residences</strong>, expanded from an earlier plan of 30 units to better reflect the site's full potential and current market demand.</p>
+        <p class="prose" style="margin-top: 10px;">The land is owned by <strong>HH Prince Mohammed bin Abdullah Al Saud</strong>. Tashyid Urban Development is leading the development on his behalf.</p>
+        <p class="prose" style="margin-top: 10px;">We are currently in <strong>Phase 1</strong> (April – July 2026), covering architectural design and funding. Construction is planned to begin <strong>January 2027</strong> and complete by <strong>May 2029</strong>.</p>
+      </div>
+
+      <!-- Progress This Month -->
+      <div>
+        <div class="sec-head"><span>◇</span> Progress This Month</div>
+        <div>
+          <div class="prog-item">
+            <div class="prog-dot"></div>
+            <p class="prose" style="font-size: 12px;">The <strong>full architectural drawings</strong> are complete and have been independently reviewed by the supervision team</p>
+          </div>
+          <div class="prog-item">
+            <div class="prog-dot"></div>
+            <p class="prose" style="font-size: 12px;"><strong>Underground foundations and main structural frame</strong> are already in place on site — significant early work is done</p>
+          </div>
+          <div class="prog-item">
+            <div class="prog-dot"></div>
+            <p class="prose" style="font-size: 12px;"><strong>Ground excavation has started</strong> — physical activity is visible and underway on site</p>
+          </div>
+          <div class="prog-item">
+            <div class="prog-dot"></div>
+            <p class="prose" style="font-size: 12px;">The project's lender <strong>(Sidra Capital)</strong> has submitted a funding proposal — currently under review</p>
+          </div>
+          <div class="prog-item">
+            <div class="prog-dot"></div>
+            <p class="prose" style="font-size: 12px;"><strong>Brandship</strong> branding agency selected — contract being finalised</p>
+          </div>
+          <div class="prog-item">
+            <div class="prog-dot"></div>
+            <p class="prose" style="font-size: 12px;">Site perimeter fence being upgraded — <strong>20% complete</strong></p>
+          </div>
+          <div class="prog-item">
+            <div class="prog-dot"></div>
+            <p class="prose" style="font-size: 12px;">New project signboard planned for installation <strong>14 Jun 2026</strong></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div style="padding: 28px 48px 28px 32px;">
+
+      <!-- Financial Status -->
+      <div style="margin-bottom: 26px;">
+        <div class="sec-head"><span>◇</span> Financial Status</div>
+
+        <!-- AMBER callout -->
+        <div style="background: rgba(200,134,10,0.07); border: 1px solid rgba(200,134,10,0.3); border-radius: 2px; padding: 10px 14px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span style="width: 7px; height: 7px; background: #C8860A; border-radius: 50%; flex-shrink: 0;"></span>
+          <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #9A6408;">AMBER — Attention Required</span>
+        </div>
+
+        <p class="prose" style="font-size: 12px;">The project's total budget has not yet been confirmed. The <strong>funding agreement with Sidra Capital has not been signed</strong> despite being open for 91 days. Until that agreement is finalised, no firm budget can be set, no supplier contracts can be fully awarded, and the project cannot be announced publicly.</p>
+        <div style="margin-top: 12px; background: #F8F6F4; border-left: 3px solid #C8860A; padding: 10px 13px; border-radius: 0 2px 2px 0;">
+          <p class="prose" style="font-size: 12px; color: #7A1143; font-weight: 500;">Resolving the Sidra Capital agreement is the single most urgent financial action for the CEO this month.</p>
+        </div>
+      </div>
+
+      <!-- What Happens Next -->
+      <div>
+        <div class="sec-head"><span>◇</span> What Happens Next</div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+
+          <div style="display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; border: 1px solid #E4E0DC; border-radius: 2px; padding: 10px 12px; background: white;">
+            <div class="step-num" style="background: #7A1143;">1</div>
+            <div>
+              <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 11.5px; font-weight: 700; color: #2E2D2C; margin-bottom: 3px;">Sign the supervision contract with Midrar</div>
+              <p class="prose" style="font-size: 11px; color: #6B6866;">Midrar oversees all construction quality on site. Their contract must be signed before works progress further.</p>
+              <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; background: rgba(122,17,67,0.07); color: #7A1143; padding: 2px 7px; border-radius: 2px; display: inline-block; margin-top: 5px;">Due: 30 Jun 2026</span>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; border: 1px solid rgba(200,134,10,0.4); border-left: 3px solid #C8860A; border-radius: 2px; padding: 10px 12px; background: rgba(200,134,10,0.04);">
+            <div class="step-num" style="background: #C8860A;">2</div>
+            <div>
+              <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 11.5px; font-weight: 700; color: #2E2D2C; margin-bottom: 3px;">Resolve the Sidra Capital funding agreement</div>
+              <p class="prose" style="font-size: 11px; color: #6B6866;">CEO must escalate directly to close this. It is blocking the entire financial plan.</p>
+              <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; background: rgba(200,134,10,0.18); color: #9A6408; padding: 2px 7px; border-radius: 2px; display: inline-block; margin-top: 5px; font-weight: 700;">URGENT · 91 days open</span>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; border: 1px solid #E4E0DC; border-radius: 2px; padding: 10px 12px; background: white;">
+            <div class="step-num" style="background: #7A1143;">3</div>
+            <div>
+              <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 11.5px; font-weight: 700; color: #2E2D2C; margin-bottom: 3px;">Sign the marketing contract with Brandship</div>
+              <p class="prose" style="font-size: 11px; color: #6B6866;">Brandship will handle brand identity and apartment sales. Contract is ready to sign.</p>
+              <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; background: rgba(122,17,67,0.07); color: #7A1143; padding: 2px 7px; border-radius: 2px; display: inline-block; margin-top: 5px;">Due: 30 Jun 2026</span>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; border: 1px solid #E4E0DC; border-radius: 2px; padding: 10px 12px; background: white;">
+            <div class="step-num" style="background: #7A1143;">4</div>
+            <div>
+              <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 11.5px; font-weight: 700; color: #2E2D2C; margin-bottom: 3px;">Obtain the Amana municipal permit</div>
+              <p class="prose" style="font-size: 11px; color: #6B6866;">An official letter from Jeddah municipality is required before the land development agreement can be formalised.</p>
+              <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; background: rgba(122,17,67,0.07); color: #7A1143; padding: 2px 7px; border-radius: 2px; display: inline-block; margin-top: 5px;">Due: Jul 2026</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ DECISIONS NEEDED FROM CEO ══════ -->
+  <div style="background: #2E2D2C; padding: 24px 48px; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background-image: url('assets/TD-PATTERNS-02-palmtrees.png'); background-size: 180px; opacity: 0.06;"></div>
+    <div style="position: relative; z-index: 1;">
+      <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.38); display: flex; align-items: center; gap: 8px; padding-bottom: 14px; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <span>◇</span> Decisions Needed from CEO
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+
+        <div style="background: rgba(122,17,67,0.35); border: 1px solid rgba(122,17,67,0.6); border-top: 3px solid #7A1143; border-radius: 2px; padding: 16px 18px;">
+          <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 9px;">
+            <span style="width: 6px; height: 6px; background: #F5C040; border-radius: 50%;"></span>
+            <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #F5C040;">CEO — Urgent</span>
+          </div>
+          <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12.5px; font-weight: 700; color: white; margin-bottom: 8px; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.02em;">Approve the Sidra Capital Funding Agreement</div>
+          <p class="prose" style="font-size: 11.5px; color: rgba(255,255,255,0.6);">Sidra Capital's proposal has been waiting <strong style="color: #F5C040;">91 days</strong> for a decision. Without this approval, the project cannot set sales prices, begin procurement, or make any public announcement. <strong style="color: rgba(255,255,255,0.8);">The CEO must contact Sidra Capital directly this week.</strong></p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-top: 3px solid rgba(255,255,255,0.25); border-radius: 2px; padding: 16px 18px;">
+          <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 9px;">
+            <span style="width: 6px; height: 6px; background: rgba(255,255,255,0.4); border-radius: 50%;"></span>
+            <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4);">CEO — Review Required</span>
+          </div>
+          <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12.5px; font-weight: 700; color: white; margin-bottom: 8px; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.02em;">Approve the Apartment Sales Price List</div>
+          <p class="prose" style="font-size: 11.5px; color: rgba(255,255,255,0.6);">A pricing plan for all <strong style="color: rgba(255,255,255,0.8);">65 apartments</strong> has been prepared and reviewed. CEO approval is required before any sales conversations or public pricing can begin.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ FOOTER ══════ -->
+  <div style="background: #7A1143; padding: 13px 48px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45);">Confidential — CEO &amp; Investor Use Only</div>
+    <div style="display: flex; align-items: center; gap: 12px; font-family: 'DIN Next LT W23', sans-serif; font-size: 9px; color: rgba(255,255,255,0.45);">
+      <span>www.tashyid.sa</span>
+      <span style="color: rgba(255,255,255,0.2);">◇</span>
+      <span>Info@tashyid.sa</span>
+      <span style="color: rgba(255,255,255,0.2);">◇</span>
+      <span>+966 12 612 6277</span>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

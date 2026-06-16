@@ -1,0 +1,269 @@
+/*
+ * Tashyid Design System — Colors & Typography
+ * ============================================
+ * Brand: Tashyid (تشييد) — Saudi Real Estate & Construction
+ * Version: 2026
+ */
+
+/* ─── FONTS ──────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'DIN Next Arabic';
+  src: url('fonts/DINNextArabic-Regular-v2.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DIN Next Arabic';
+  src: url('fonts/DINNextArabic-Medium-v2.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DIN Next Arabic';
+  src: url('fonts/DINNextArabic-Bold-v2.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DIN Next LT W23';
+  src: url('fonts/DINNextLTW23-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*
+ * NOTE: DIN Next LT W23 (English) was not provided in the brand assets.
+ * Using 'Barlow' from Google Fonts as the closest available substitute
+ * for the geometric, slightly condensed, industrial sans character.
+ * Please provide DIN Next LT W23 font files for accurate English rendering.
+ * Import: @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;700&display=swap');
+ */
+
+/* ─── COLOR TOKENS ───────────────────────────────────── */
+
+:root {
+
+  /* Primary — Burgundy */
+  --color-primary:        #7A1143;   /* Pantone P77-16U | CMYK 34/100/34/41 */
+  --color-primary-90:     #7A114326; /* 10% */
+  --color-primary-70:     #7A114370; /* 44% */
+  --color-primary-50:     #7A114380; /* 50% */
+  --color-primary-30:     #7A11434D; /* 30% */
+  --color-primary-10:     #7A11431A; /* 10% */
+  --color-primary-dark:   #5a0c32;   /* darker press state */
+  --color-primary-light:  #9e2d62;   /* lighter hover state */
+
+  /* Secondary — Light Green */
+  --color-green:          #AAD3BF;   /* Pantone P136-10C | CMYK 39/3/31/0 */
+  --color-green-90:       #AAD3BFE5;
+  --color-green-70:       #AAD3BFB3;
+  --color-green-50:       #AAD3BF80;
+  --color-green-30:       #AAD3BF4D;
+  --color-green-10:       #AAD3BF1A;
+  --color-green-dark:     #82b59e;
+  --color-green-light:    #c8e5d8;
+
+  /* Secondary — Near Black */
+  --color-black:          #2E2D2C;   /* Pantone P179-15C | CMYK 0/0/0/95 */
+  --color-black-90:       #2E2D2CE5;
+  --color-black-70:       #2E2D2CB3;
+  --color-black-50:       #2E2D2C80;
+  --color-black-30:       #2E2D2C4D;
+  --color-black-10:       #2E2D2C1A;
+
+  /* Neutral */
+  --color-white:          #FFFFFF;
+  --color-off-white:      #F8F6F4;
+  --color-surface:        #F4F2F0;
+  --color-border:         #E2DDD8;
+  --color-border-light:   #EDE9E5;
+
+  /* Semantic */
+  --color-bg:             var(--color-white);
+  --color-bg-subtle:      var(--color-off-white);
+  --color-fg:             var(--color-black);
+  --color-fg-muted:       #6B6866;
+  --color-fg-subtle:      #9E9B99;
+  --color-accent:         var(--color-primary);
+  --color-accent-hover:   var(--color-primary-light);
+  --color-accent-press:   var(--color-primary-dark);
+  --color-success:        var(--color-green);
+  --color-link:           var(--color-primary);
+  --color-link-hover:     var(--color-primary-light);
+
+  /* ─── TYPOGRAPHY ────────────────────────────────────── */
+
+  /* Font families */
+  --font-arabic:    'DIN Next Arabic', 'Arial', sans-serif;
+  --font-english:   'DIN Next LT W23', sans-serif;
+  --font-primary:   var(--font-arabic);   /* default for RTL contexts */
+
+  /* Type scale */
+  --text-xs:        11px;
+  --text-sm:        13px;
+  --text-base:      15px;
+  --text-md:        17px;
+  --text-lg:        20px;
+  --text-xl:        24px;
+  --text-2xl:       30px;
+  --text-3xl:       38px;
+  --text-4xl:       48px;
+  --text-5xl:       64px;
+  --text-6xl:       80px;
+
+  /* Font weights */
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-bold:    700;
+
+  /* Line heights */
+  --leading-tight:  1.2;
+  --leading-snug:   1.35;
+  --leading-normal: 1.55;
+  --leading-relaxed:1.75;
+
+  /* Letter spacing */
+  --tracking-tight:  -0.02em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.05em;
+  --tracking-wider:   0.12em;
+  --tracking-widest:  0.2em;
+
+  /* ─── SPACING ────────────────────────────────────────── */
+
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+  --space-20:  80px;
+  --space-24:  96px;
+  --space-32: 128px;
+
+  /* ─── RADII ──────────────────────────────────────────── */
+
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
+  --radius-full: 9999px;
+
+  /* ─── SHADOWS ────────────────────────────────────────── */
+
+  --shadow-sm:  0 1px 3px rgba(46,45,44,0.08);
+  --shadow-md:  0 4px 16px rgba(46,45,44,0.10);
+  --shadow-lg:  0 8px 32px rgba(46,45,44,0.14);
+  --shadow-xl:  0 16px 48px rgba(46,45,44,0.18);
+
+  /* ─── TRANSITIONS ────────────────────────────────────── */
+
+  --ease-default:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:      cubic-bezier(0, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+}
+
+/* ─── SEMANTIC TYPE STYLES ────────────────────────────── */
+
+.td-h1 {
+  font-family: var(--font-arabic);
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-fg);
+}
+
+.td-h2 {
+  font-family: var(--font-arabic);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-fg);
+}
+
+.td-h3 {
+  font-family: var(--font-arabic);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  color: var(--color-fg);
+}
+
+.td-h4 {
+  font-family: var(--font-arabic);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  color: var(--color-fg);
+}
+
+.td-h5 {
+  font-family: var(--font-arabic);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-normal);
+  color: var(--color-fg);
+}
+
+.td-body-lg {
+  font-family: var(--font-arabic);
+  font-size: var(--text-md);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--color-fg);
+}
+
+.td-body {
+  font-family: var(--font-arabic);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--color-fg);
+}
+
+.td-body-sm {
+  font-family: var(--font-arabic);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-fg-muted);
+}
+
+.td-caption {
+  font-family: var(--font-arabic);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-fg-subtle);
+}
+
+.td-label {
+  font-family: var(--font-english);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.td-display {
+  font-family: var(--font-english);
+  font-size: var(--text-6xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  line-height: var(--leading-tight);
+  color: var(--color-fg);
+}

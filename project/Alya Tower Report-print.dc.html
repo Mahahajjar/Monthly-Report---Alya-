@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<template id="__bundler_thumbnail" data-bg-color="#7A1143">
+  <svg viewBox="0 0 816 1100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="816" height="1100" fill="#7A1143"/>
+    <rect y="220" width="816" height="880" fill="#ffffff"/>
+    <rect y="220" width="816" height="15" fill="#c8860a" opacity="0.5"/>
+    <rect x="52" y="270" width="120" height="8" rx="2" fill="#E2DDD8"/>
+    <rect x="52" y="310" width="300" height="36" rx="2" fill="#F8F6F4"/>
+    <rect x="52" y="380" width="500" height="10" rx="2" fill="#F8F6F4"/>
+    <rect x="52" y="400" width="420" height="10" rx="2" fill="#F8F6F4"/>
+    <rect x="52" y="420" width="460" height="10" rx="2" fill="#F8F6F4"/>
+    <text x="52" y="185" font-size="64" font-weight="bold" fill="white" font-family="sans-serif">ALYA TOWER</text>
+    <text x="52" y="155" font-size="12" fill="rgba(255,255,255,0.5)" font-family="sans-serif" letter-spacing="4">PROJECT STATUS REPORT</text>
+  </svg>
+</template>
+<helmet>
+  <link rel="stylesheet" href="_ds/tashyid-design-system-09b28622-2bf5-4946-a4b3-6903bd054256/colors_and_type.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #E8E4DF;
+      padding: 48px 24px 72px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    @page { margin: 0; size: A4 portrait; }
+    @media print {
+      body { background: none !important; padding: 0 !important; }
+      .page {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+      }
+      *, *::before, *::after {
+        animation-delay: -99s !important;
+        animation-duration: .001s !important;
+        animation-iteration-count: 1 !important;
+        animation-fill-mode: both !important;
+        animation-play-state: running !important;
+        transition-duration: 0s !important;
+      }
+    }
+    .info-cell { padding: 13px 16px; border-right: 1px solid #E2DDD8; }
+    .info-cell:last-child { border-right: none; }
+    .section-label {
+      font-family: 'DIN Next LT W23', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #7A1143;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 11px;
+      border-bottom: 1px solid #E2DDD8;
+      margin-bottom: 14px;
+    }
+    .field-label {
+      font-family: 'DIN Next LT W23', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9E9B99;
+      margin-bottom: 4px;
+    }
+    .field-value {
+      font-family: 'DIN Next Arabic', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #2E2D2C;
+      line-height: 1.4;
+    }
+    .chip {
+      font-family: 'DIN Next LT W23', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.07em;
+      padding: 3px 9px;
+      border-radius: 2px;
+    }
+    .step-card {
+      background: white;
+      border: 1px solid #E2DDD8;
+      border-radius: 3px;
+      padding: 14px 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      background: #7A1143;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'DIN Next LT W23', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: white;
+    }
+    .step-num.urgent { background: #C8860A; }
+    .step-text {
+      font-family: 'DIN Next Arabic', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #2E2D2C;
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+  </style>
+  <script>
+    document.fonts.ready.then(function() {
+      setTimeout(function() {
+        window.print();
+      }, 1000);
+    });
+  </script>
+</helmet>
+
+<div class="page" style="max-width: 816px; margin: 0 auto; background: white; border-radius: 3px; box-shadow: 0 12px 48px rgba(46,45,44,0.16); overflow: hidden;">
+
+  <!-- HEADER -->
+  <div style="position: relative; background: #7A1143; padding: 44px 52px 42px; overflow: hidden; min-height: 220px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div style="position: absolute; inset: 0; background-image: url('assets/neom-07.jpg'); background-size: cover; background-position: center 40%; opacity: 0.22; mix-blend-mode: luminosity;"></div>
+    <div style="position: absolute; inset: 0; background-image: url('assets/TD-PATTERNS-02-palmtrees.png'); background-size: 220px; opacity: 0.07;"></div>
+    <div style="position: absolute; right: -20px; bottom: -20px; width: 220px; height: 220px; background-image: url('assets/TD-LOGO-04-badge-white.png'); background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0.07;"></div>
+
+    <div style="position: relative; z-index: 1;">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 30px;">
+        <img src="assets/TD-LOGO-04-badge-white.png" alt="Tashyid" style="height: 54px; display: block;">
+        <div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(220,148,20,0.22); border: 1px solid rgba(240,180,40,0.55); padding: 6px 14px; border-radius: 2px;">
+            <span style="width: 8px; height: 8px; background: #F5C040; border-radius: 50%; display: block; flex-shrink: 0;"></span>
+            <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #F5C040;">AMBER — Overall Status</span>
+          </div>
+          <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45);">15 June 2026 · Period: June 2026</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.42); margin-bottom: 10px;">Project Status Report</div>
+        <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 58px; font-weight: 700; color: white; line-height: 1; letter-spacing: -0.015em; text-transform: uppercase;">ALYA TOWER</div>
+        <div style="margin-top: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); letter-spacing: 0.04em;">Sidra Corniche Fund</span>
+          <span style="color: rgba(255,255,255,0.28); font-size: 10px;">◇</span>
+          <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); letter-spacing: 0.04em;">Corniche, Jeddah, Saudi Arabia</span>
+          <span style="color: rgba(255,255,255,0.28); font-size: 10px;">◇</span>
+          <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); letter-spacing: 0.04em;">Phase 1 of 3 — Design &amp; Funding</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chevron stripe -->
+  <div style="height: 15px; background-image: url('assets/TD-PATTERNS-05-chevron.png'); background-size: cover; background-position: center;"></div>
+
+  <!-- PROJECT DETAILS -->
+  <div style="padding: 28px 52px 0;">
+    <div style="margin-bottom: 10px;">
+      <div class="section-label"><span>◇</span> Project Team</div>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); border: 1px solid #E2DDD8; border-radius: 3px; overflow: hidden;">
+        <div class="info-cell"><div class="field-label">Project Manager</div><div class="field-value">Abdullah Anbar</div></div>
+        <div class="info-cell"><div class="field-label">Developer</div><div class="field-value">Tashyid Urban Dev.</div></div>
+        <div class="info-cell"><div class="field-label">Fund Manager</div><div class="field-value">Sidra Capital</div></div>
+        <div class="info-cell"><div class="field-label">Main Contractor</div><div class="field-value">UCCL</div></div>
+        <div class="info-cell"><div class="field-label">Supervision &amp; PM</div><div class="field-value">Midrar</div></div>
+      </div>
+    </div>
+    <div style="margin-bottom: 28px;">
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); border: 1px solid #E2DDD8; border-radius: 3px; overflow: hidden;">
+        <div class="info-cell" style="background: #F8F6F4;"><div class="field-label">Current Phase</div><div class="field-value" style="color: #7A1143; font-size: 12px;">Phase 1 — Design &amp; Funding</div></div>
+        <div class="info-cell" style="background: #F8F6F4;"><div class="field-label">Tower Scale</div><div class="field-value">65 Units · 29 Floors</div></div>
+        <div class="info-cell" style="background: #F8F6F4;"><div class="field-label">Location</div><div class="field-value">Corniche Rd, N. Jeddah</div></div>
+        <div class="info-cell" style="background: #F8F6F4;"><div class="field-label">Landowner</div><div class="field-value" style="font-size: 12px;">HH Prince Mohammed bin Abdullah Al Saud</div></div>
+        <div class="info-cell" style="background: #F8F6F4;"><div class="field-label">Lead Designer</div><div class="field-value">Erga</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div style="padding: 0 52px 32px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px;">
+    <div>
+      <div style="margin-bottom: 28px;">
+        <div class="section-label"><span>◇</span> Project Snapshot</div>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr><td style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: #9E9B99; padding: 5px 0; width: 36%; vertical-align: top;">Brief</td><td style="font-family: 'DIN Next Arabic', sans-serif; font-size: 13px; font-weight: 500; color: #2E2D2C; padding: 5px 0; line-height: 1.45;">Premium residential tower on Jeddah's North Corniche waterfront</td></tr>
+          <tr><td style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: #9E9B99; padding: 5px 0; border-top: 1px solid #F4F2F0; vertical-align: top;">Units</td><td style="font-family: 'DIN Next Arabic', sans-serif; font-size: 13px; font-weight: 500; color: #2E2D2C; padding: 5px 0; border-top: 1px solid #F4F2F0;">65 exclusive residences <span style="color: #9E9B99; font-weight: 400; font-size: 12px;">(redesigned from 30)</span></td></tr>
+          <tr><td style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: #9E9B99; padding: 5px 0; border-top: 1px solid #F4F2F0;">Height</td><td style="font-family: 'DIN Next Arabic', sans-serif; font-size: 13px; font-weight: 500; color: #2E2D2C; padding: 5px 0; border-top: 1px solid #F4F2F0;">29 floors above ground level</td></tr>
+          <tr><td style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: #9E9B99; padding: 5px 0; border-top: 1px solid #F4F2F0;">Phase</td><td style="font-family: 'DIN Next Arabic', sans-serif; font-size: 13px; font-weight: 500; color: #2E2D2C; padding: 5px 0; border-top: 1px solid #F4F2F0;">Phase 1 of 3 · Apr – Jul 2026</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="section-label"><span>◇</span> Key Achievements This Period</div>
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <div style="display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; background: #F8F6F4; border-radius: 2px;"><span style="color: #7A1143; font-size: 9px; margin-top: 4px; flex-shrink: 0;">◇</span><span style="font-family: 'DIN Next Arabic', sans-serif; font-size: 13px; color: #2E2D2C; line-height: 1.45;">Erga schematic design completed — Midrar review comments shared</span></div>
+          <div style="display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; background: #F8F6F4; border-radius: 2px;"><span style="color: #7A1143; font-size: 9px; margin-top: 4px; flex-shrink: 0;">◇</span><span style="font-family: 'DIN Next Arabic', sans-serif; font-size: 13px; color: #2E2D2C; line-height: 1.45;">Substructure and superstructure (structural works) complete</span></div>
+          <div style="display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; background: #F8F6F4; border-radius: 2px;"><span style="color: #7A1143; font-size: 9px; margin-top: 4px; flex-shrink: 0;">◇</span><span style="font-family: 'DIN Next Arabic', sans-serif; font-size: 13px; color: #2E2D2C; line-height: 1.45;">Excavation works commenced on site</span></div>
+          <div style="display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; background: #F8F6F4; border-radius: 2px;"><span style="color: #7A1143; font-size: 9px; margin-top: 4px; flex-shrink: 0;">◇</span><span style="font-family: 'DIN Next Arabic', sans-serif; font-size: 13px; color: #2E2D2C; line-height: 1.45;">Sidra Capital loan term sheet received — under review</span></div>
+          <div style="display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; background: #F8F6F4; border-radius: 2px;"><span style="color: #7A1143; font-size: 9px; margin-top: 4px; flex-shrink: 0;">◇</span><span style="font-family: 'DIN Next Arabic', sans-serif; font-size: 13px; color: #2E2D2C; line-height: 1.45;">Brandship proposal finalised — awaiting contract signature</span></div>
+          <div style="display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; background: #F8F6F4; border-radius: 2px;"><span style="color: #7A1143; font-size: 9px; margin-top: 4px; flex-shrink: 0;">◇</span><span style="font-family: 'DIN Next Arabic', sans-serif; font-size: 13px; color: #2E2D2C; line-height: 1.45;">Site fence rehabilitation in progress <span style="color: #9E9B99;">(20% complete)</span></span></div>
+          <div style="display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; background: #F8F6F4; border-radius: 2px;"><span style="color: #7A1143; font-size: 9px; margin-top: 4px; flex-shrink: 0;">◇</span><span style="font-family: 'DIN Next Arabic', sans-serif; font-size: 13px; color: #2E2D2C; line-height: 1.45;">Site signboard installation planned for 14 Jun 2026</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label"><span>◇</span> Budget Status</div>
+      <div style="display: flex; align-items: center; gap: 9px; background: rgba(200,134,10,0.08); border: 1px solid rgba(200,134,10,0.3); border-radius: 3px; padding: 10px 14px; margin-bottom: 16px;">
+        <span style="width: 8px; height: 8px; background: #C8860A; border-radius: 50%; flex-shrink: 0;"></span>
+        <span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #9A6408;">AMBER — Baseline Pending</span>
+      </div>
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 14px;">
+        <tr style="border-bottom: 1px solid #F0EDE9;"><td style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: #6B6866; padding: 9px 0;">Approved Budget</td><td style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: #9E9B99; padding: 9px 0; text-align: right; font-style: italic;">TBC</td></tr>
+        <tr style="border-bottom: 1px solid #F0EDE9;"><td style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: #6B6866; padding: 9px 0;">Spent to Date</td><td style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: #9E9B99; padding: 9px 0; text-align: right; font-style: italic;">TBC</td></tr>
+        <tr style="border-bottom: 1px solid #F0EDE9;"><td style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: #6B6866; padding: 9px 0;">Forecast Final Cost</td><td style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: #9E9B99; padding: 9px 0; text-align: right; font-style: italic;">TBC</td></tr>
+        <tr><td style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: #6B6866; padding: 9px 0;">Contract Values</td><td style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: #9E9B99; padding: 9px 0; text-align: right; font-style: italic;">TBC</td></tr>
+      </table>
+      <div style="background: #F8F6F4; border-left: 3px solid #C8860A; border-radius: 0 3px 3px 0; padding: 11px 13px; font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: #6B6866; line-height: 1.6;">
+        Financial baseline locked upon Sidra loan approval. CEO and investor decision required to unblock — <strong style="color: #9A6408;">91 days open.</strong>
+      </div>
+      <div style="margin-top: 20px; border-radius: 3px; overflow: hidden; height: 130px; position: relative;">
+        <div style="position: absolute; inset: 0; background-image: url('assets/neom-03.jpg'); background-size: cover; background-position: center;"></div>
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(122,17,67,0.7) 0%, transparent 60%);"></div>
+        <div style="position: absolute; bottom: 12px; left: 14px; font-family: 'DIN Next LT W23', sans-serif; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.7);">Corniche, Jeddah</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEXT STEPS -->
+  <div style="background: #F8F6F4; border-top: 1px solid #E2DDD8; border-bottom: 1px solid #E2DDD8; padding: 26px 52px;">
+    <div class="section-label"><span>◇</span> Next Steps — 2 to 4 Weeks</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+      <div class="step-card"><div class="step-num">1</div><div><div class="step-text">Finalise Midrar and Sidra development contracts</div><div style="display: flex; gap: 6px; flex-wrap: wrap;"><span class="chip" style="background: #EDE9E5; color: #6B6866;">Abdullah Anbar</span><span class="chip" style="background: rgba(122,17,67,0.08); color: #7A1143;">Due: 30 Jun</span><span class="chip" style="background: #EDE9E5; color: #9E9B99;">From MOM 08-Jun</span></div></div></div>
+      <div class="step-card" style="border-left: 3px solid #C8860A;"><div class="step-num urgent">2</div><div><div class="step-text">Resolve Sidra Capital loan term sheet — escalate to CEO</div><div style="display: flex; gap: 6px; flex-wrap: wrap;"><span class="chip" style="background: #EDE9E5; color: #6B6866;">Abdullah Anbar</span><span class="chip" style="background: rgba(200,134,10,0.12); color: #9A6408; font-weight: 700;">URGENT · 91 days open</span></div></div></div>
+      <div class="step-card"><div class="step-num">3</div><div><div class="step-text">Sign Brandship branding and marketing contract</div><div style="display: flex; gap: 6px; flex-wrap: wrap;"><span class="chip" style="background: #EDE9E5; color: #6B6866;">Renad Rajab</span><span class="chip" style="background: rgba(122,17,67,0.08); color: #7A1143;">Due: 30 Jun</span></div></div></div>
+      <div class="step-card"><div class="step-num">4</div><div><div class="step-text">Initiate NWC Developers Agreement — obtain Amana letter first</div><div style="display: flex; gap: 6px; flex-wrap: wrap;"><span class="chip" style="background: #EDE9E5; color: #6B6866;">Abdullah Anbar</span><span class="chip" style="background: rgba(122,17,67,0.08); color: #7A1143;">Due: Jul 2026</span></div></div></div>
+    </div>
+  </div>
+
+  <!-- DECISIONS REQUIRED -->
+  <div style="background: #7A1143; padding: 28px 52px; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background-image: url('assets/TD-PATTERNS-02-palmtrees.png'); background-size: 200px; opacity: 0.07;"></div>
+    <div style="position: relative; z-index: 1;">
+      <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.48); display: flex; align-items: center; gap: 8px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.15);"><span>◇</span> Decisions Required — CEO &amp; Investor Action</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+        <div style="background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.18); border-radius: 3px; padding: 18px 20px;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;"><span style="width: 7px; height: 7px; background: #F5C040; border-radius: 50%; flex-shrink: 0;"></span><span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #F5C040;">Urgent</span></div>
+          <div style="font-family: 'DIN Next Arabic', sans-serif; font-size: 14px; font-weight: 500; color: white; margin-bottom: 10px; line-height: 1.45;">Sidra Capital Loan Term Sheet Approval</div>
+          <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: rgba(255,255,255,0.58); line-height: 1.65;">Term sheet with Sidra Capital is 91 days open, blocking the fund announcement and financial baseline. CEO escalation required urgently.</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.18); border-radius: 3px; padding: 18px 20px;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;"><span style="width: 7px; height: 7px; background: rgba(255,255,255,0.45); border-radius: 50%; flex-shrink: 0;"></span><span style="font-family: 'DIN Next LT W23', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45);">Action Required</span></div>
+          <div style="font-family: 'DIN Next Arabic', sans-serif; font-size: 14px; font-weight: 500; color: white; margin-bottom: 10px; line-height: 1.45;">Sales Price Sheet — FMH Review &amp; CEO Approval</div>
+          <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 12px; color: rgba(255,255,255,0.58); line-height: 1.65;">Price sheet must be adjusted per FMH comments before public release.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="background: #2E2D2C; padding: 16px 52px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="font-family: 'DIN Next LT W23', sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35);">Confidential — CEO and Investor Use Only</div>
+    <div style="display: flex; align-items: center; gap: 14px; font-family: 'DIN Next LT W23', sans-serif; font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 0.04em;">
+      <span>www.tashyid.sa</span>
+      <span style="color: rgba(255,255,255,0.18);">◇</span>
+      <span>Info@tashyid.sa</span>
+      <span style="color: rgba(255,255,255,0.18);">◇</span>
+      <span>+966 12 612 6277</span>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>
