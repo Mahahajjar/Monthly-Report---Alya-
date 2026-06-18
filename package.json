@@ -1,0 +1,14 @@
+{
+  "name": "alya-tower-report-generator",
+  "version": "1.0.0",
+  "description": "Automated monthly report generator — reads from SharePoint Excel, renders branded PDF",
+  "scripts": {
+    "generate": "node scripts/generate-report.js",
+    "fetch": "node scripts/fetch-excel.js",
+    "notify": "node scripts/notify-teams.js"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "puppeteer": "^23.0.0"
+  }
+}

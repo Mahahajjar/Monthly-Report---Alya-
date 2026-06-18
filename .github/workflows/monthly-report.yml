@@ -1,0 +1,104 @@
+name: Monthly Report Generator
+
+on:
+  schedule:
+    # 07:00 UTC on the 28th = 10:00 AM Riyadh time (AST, UTC+3)
+    - cron: '0 7 28 * *'
+
+  # Trigger manually from GitHub → Actions → Run workflow
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual run (optional)'
+        required: false
+        default: 'Manual trigger'
+
+permissions:
+  contents: write   # required to create GitHub Releases
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+
+      # ── 1. Checkout ────────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── 2. Node.js ─────────────────────────────────────────────────────────
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # ── 3. Dependencies ────────────────────────────────────────────────────
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Install Puppeteer's Chromium browser
+        run: npx puppeteer browsers install chrome
+
+      # ── 4. Fetch Excel from SharePoint ────────────────────────────────────
+      - name: Download Excel from SharePoint
+        id: fetch
+        env:
+          AZURE_TENANT_ID:       ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_CLIENT_ID:       ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET:   ${{ secrets.AZURE_CLIENT_SECRET }}
+          SHAREPOINT_HOSTNAME:   ${{ secrets.SHAREPOINT_HOSTNAME }}
+          SHAREPOINT_SITE_PATH:  ${{ secrets.SHAREPOINT_SITE_PATH }}
+          SHAREPOINT_FILE_PATH:  ${{ secrets.SHAREPOINT_FILE_PATH }}
+        run: node scripts/fetch-excel.js
+
+      # ── 5. Generate PDF ────────────────────────────────────────────────────
+      - name: Generate branded PDF report
+        id: generate
+        run: node scripts/generate-report.js ${{ steps.fetch.outputs.xlsx_path }}
+
+      # ── 6. Publish to GitHub Releases ──────────────────────────────────────
+      - name: Publish PDF to GitHub Releases
+        id: release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date +'%Y-%m')
+          MONTH=$(date +'%B %Y')
+          TAG="report-${DATE}"
+          TITLE="Alya Tower Report — ${MONTH}"
+          PDF="${{ steps.generate.outputs.pdf_path }}"
+
+          # Remove existing release for this month if re-running
+          gh release delete "$TAG" --yes 2>/dev/null || true
+
+          gh release create "$TAG" "$PDF" \
+            --title "$TITLE" \
+            --notes "Monthly project status report for **${MONTH}**.
+Generated automatically on $(date +'%d %B %Y').
+
+> 🔒 Confidential — CEO & Investor use only." \
+            --latest
+
+          RELEASE_URL=$(gh release view "$TAG" --json url -q .url)
+          echo "release_url=${RELEASE_URL}"  >> "$GITHUB_OUTPUT"
+          echo "release_title=${TITLE}"       >> "$GITHUB_OUTPUT"
+          echo "month=${MONTH}"               >> "$GITHUB_OUTPUT"
+
+      # ── 7. Notify Microsoft Teams ──────────────────────────────────────────
+      - name: Send Teams notification
+        env:
+          TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          REPORT_URL:        ${{ steps.release.outputs.release_url }}
+          REPORT_TITLE:      ${{ steps.release.outputs.release_title }}
+          REPORT_DATE:       ${{ steps.generate.outputs.report_date }}
+        run: node scripts/notify-teams.js
+
+      # ── 8. Keep PDF as workflow artifact (90-day backup) ──────────────────
+      - name: Archive PDF as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: alya-tower-report-${{ steps.release.outputs.month }}
+          path: reports/*.pdf
+          retention-days: 90
