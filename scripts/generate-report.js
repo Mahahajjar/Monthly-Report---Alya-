@@ -147,6 +147,19 @@ function decisionsHTML(decisions) {
   }).join('');
 }
 
+function financialBadgeHTML(financialStatus) {
+  const cfg = {
+    GREEN: { bg: 'rgba(76,175,80,0.07)', border: 'rgba(76,175,80,0.28)', dot: '#4CAF50', text: '#2E7D5A', label: 'GREEN — On Track' },
+    AMBER: { bg: 'rgba(200,134,10,0.07)', border: 'rgba(200,134,10,0.28)', dot: '#C8860A', text: '#9A6408', label: 'AMBER — Attention Required' },
+    RED:   { bg: 'rgba(239,83,80,0.07)',  border: 'rgba(239,83,80,0.28)',  dot: '#EF5350', text: '#C62828', label: 'RED — Urgent Action Required' }
+  }[financialStatus] || { bg: 'rgba(200,134,10,0.07)', border: 'rgba(200,134,10,0.28)', dot: '#C8860A', text: '#9A6408', label: 'AMBER — Attention Required' };
+
+  return `<div style="display:flex;align-items:center;gap:6px;background:${cfg.bg};border:1px solid ${cfg.border};border-radius:2px;padding:7px 10px;margin-bottom:9px;">
+    <span style="width:6px;height:6px;background:${cfg.dot};border-radius:50%;flex-shrink:0;"></span>
+    <span style="font-family:'DIN Next LT W23',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:${cfg.text};">${cfg.label}</span>
+  </div>`;
+}
+
 function buildHTML(d) {
   const statusColor  = { GREEN: '#4CAF50', AMBER: '#F5C040', RED: '#EF5350'     }[d.status] || '#F5C040';
   const statusBg     = { GREEN: 'rgba(76,175,80,0.25)', AMBER: 'rgba(200,134,10,0.25)', RED: 'rgba(239,83,80,0.25)' }[d.status] || 'rgba(200,134,10,0.25)';
@@ -255,10 +268,7 @@ function buildHTML(d) {
       </div>
       <div>
         <div style="font-family:'DIN Next LT W23',sans-serif;font-size:8.5px;letter-spacing:0.26em;text-transform:uppercase;color:#7A1143;display:flex;align-items:center;gap:6px;padding-bottom:8px;border-bottom:1px solid #E4E0DC;margin-bottom:11px;">◇ Financial Status</div>
-        <div style="display:flex;align-items:center;gap:6px;background:rgba(200,134,10,0.07);border:1px solid rgba(200,134,10,0.28);border-radius:2px;padding:7px 10px;margin-bottom:9px;">
-          <span style="width:6px;height:6px;background:#C8860A;border-radius:50%;flex-shrink:0;"></span>
-          <span style="font-family:'DIN Next LT W23',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#9A6408;">AMBER — Attention Required</span>
-        </div>
+        ${financialBadgeHTML(d.financial_status)}
         <p style="font-family:'DIN Next Arabic',sans-serif;font-size:11px;color:#3A3937;line-height:1.72;">${d.financial_body || ''}</p>
         <div style="margin-top:9px;background:#F8F6F4;border-left:3px solid #C8860A;padding:8px 10px;border-radius:0 2px 2px 0;">
           <p style="font-family:'DIN Next Arabic',sans-serif;font-size:11px;color:#7A1143;font-weight:600;line-height:1.72;">${d.financial_callout || ''}</p>
@@ -304,6 +314,19 @@ async function main() {
 
   const data = await parseExcel(xlsxPath);
   console.log(`✅ Data loaded — ${data.project_name}, ${data.report_date}, status: ${data.status}`);
+
+  // Override financial fields with AI-extracted data from Dropbox PDFs if available
+  const financialJsonPath = path.join(REPORTS_DIR, '_financial.json');
+  if (fs.existsSync(financialJsonPath)) {
+    const fin = JSON.parse(fs.readFileSync(financialJsonPath, 'utf8'));
+    data.financial_body     = fin.financial_body     || data.financial_body;
+    data.financial_callout  = fin.financial_callout  || data.financial_callout;
+    data.financial_status   = fin.financial_status   || 'AMBER';
+    console.log(`💰 Financial data loaded from Dropbox PDFs (status: ${data.financial_status})`);
+  } else {
+    data.financial_status = data.financial_status || 'AMBER';
+    console.log('ℹ️  No _financial.json found — using Excel financial data');
+  }
 
   const html = buildHTML(data);
 

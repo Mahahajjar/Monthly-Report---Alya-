@@ -8,10 +8,14 @@ on:
   # Trigger manually from GitHub → Actions → Run workflow
   workflow_dispatch:
     inputs:
-      reason:
-        description: 'Reason for manual run (optional)'
-        required: false
-        default: 'Manual trigger'
+      action:
+        description: 'verify = preview financial data in Teams only | publish = full report + release'
+        required: true
+        default: 'verify'
+        type: choice
+        options:
+          - verify
+          - publish
 
 permissions:
   contents: write   # required to create GitHub Releases
@@ -41,7 +45,7 @@ jobs:
       - name: Install Puppeteer's Chromium browser
         run: npx puppeteer browsers install chrome
 
-      # ── 4. Fetch Excel from SharePoint ────────────────────────────────────
+      # ── 4. Fetch Excel from SharePoint (non-financial data) ───────────────
       - name: Download Excel from SharePoint
         id: fetch
         env:
@@ -53,14 +57,52 @@ jobs:
           SHAREPOINT_FILE_PATH:  ${{ secrets.SHAREPOINT_FILE_PATH }}
         run: node scripts/fetch-excel.js
 
-      # ── 5. Generate PDF ────────────────────────────────────────────────────
+      # ── 5. Fetch financial PDFs from Dropbox ──────────────────────────────
+      - name: Download financial PDFs from Dropbox
+        id: dropbox
+        env:
+          DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
+          DROPBOX_FOLDER_PATH:  ${{ secrets.DROPBOX_FOLDER_PATH }}
+        run: node scripts/fetch-dropbox.js
+
+      # ── 6. Extract & synthesize financial data with Claude AI ─────────────
+      - name: Extract financial data from PDFs
+        id: financial
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/extract-financial.js "${{ steps.dropbox.outputs.pdf_paths }}"
+
+      # ── 7a. VERIFY MODE — send preview to Teams and stop ──────────────────
+      - name: Send financial verification preview to Teams
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'verify'
+        env:
+          TEAMS_WEBHOOK_URL:   ${{ secrets.TEAMS_WEBHOOK_URL }}
+          FINANCIAL_STATUS:    ${{ steps.financial.outputs.financial_status }}
+          FINANCIAL_BODY:      ${{ steps.financial.outputs.financial_body }}
+          FINANCIAL_CALLOUT:   ${{ steps.financial.outputs.financial_callout }}
+          FINANCIAL_SUMMARY:   ${{ steps.financial.outputs.financial_summary }}
+          PDF_COUNT:           ${{ steps.dropbox.outputs.pdf_count }}
+        run: node scripts/notify-verify.js
+
+      - name: Verification complete — stopping before publish
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'verify'
+        run: |
+          echo ""
+          echo "✅ VERIFICATION COMPLETE"
+          echo "   Check your Teams channel for the financial data preview."
+          echo "   If the figures are correct, run the workflow again with action = publish."
+          echo ""
+
+      # ── 7b. PUBLISH MODE — generate PDF report ────────────────────────────
       - name: Generate branded PDF report
         id: generate
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.action == 'publish'
         run: node scripts/generate-report.js ${{ steps.fetch.outputs.xlsx_path }}
 
-      # ── 6. Publish to GitHub Releases ──────────────────────────────────────
+      # ── 8. Publish to GitHub Releases ─────────────────────────────────────
       - name: Publish PDF to GitHub Releases
         id: release
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.action == 'publish'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -77,6 +119,7 @@ jobs:
             --title "$TITLE" \
             --notes "Monthly project status report for **${MONTH}**.
 Generated automatically on $(date +'%d %B %Y').
+Financial data sourced from ${{ steps.dropbox.outputs.pdf_count }} payment document(s) via Dropbox.
 
 > 🔒 Confidential — CEO & Investor use only." \
             --latest
@@ -86,8 +129,9 @@ Generated automatically on $(date +'%d %B %Y').
           echo "release_title=${TITLE}"       >> "$GITHUB_OUTPUT"
           echo "month=${MONTH}"               >> "$GITHUB_OUTPUT"
 
-      # ── 7. Notify Microsoft Teams ──────────────────────────────────────────
+      # ── 9. Notify Microsoft Teams ──────────────────────────────────────────
       - name: Send Teams notification
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.action == 'publish'
         env:
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
           REPORT_URL:        ${{ steps.release.outputs.release_url }}
@@ -95,8 +139,9 @@ Generated automatically on $(date +'%d %B %Y').
           REPORT_DATE:       ${{ steps.generate.outputs.report_date }}
         run: node scripts/notify-teams.js
 
-      # ── 8. Keep PDF as workflow artifact (90-day backup) ──────────────────
+      # ── 10. Keep PDF as workflow artifact (90-day backup) ─────────────────
       - name: Archive PDF as workflow artifact
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.action == 'publish'
         uses: actions/upload-artifact@v4
         with:
           name: alya-tower-report-${{ steps.release.outputs.month }}

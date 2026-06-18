@@ -1,14 +1,18 @@
 {
   "name": "alya-tower-report-generator",
   "version": "1.0.0",
-  "description": "Automated monthly report generator — reads from SharePoint Excel, renders branded PDF",
+  "description": "Automated monthly report generator — reads from SharePoint Excel + Dropbox PDFs, renders branded PDF",
   "scripts": {
     "generate": "node scripts/generate-report.js",
     "fetch": "node scripts/fetch-excel.js",
+    "fetch-dropbox": "node scripts/fetch-dropbox.js",
+    "extract-financial": "node scripts/extract-financial.js",
     "notify": "node scripts/notify-teams.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.0",
     "exceljs": "^4.4.0",
+    "pdf-parse": "^1.1.1",
     "puppeteer": "^23.0.0"
   }
 }
